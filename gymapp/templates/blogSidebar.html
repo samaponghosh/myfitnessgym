@@ -1,0 +1,11 @@
+<div class="col-md-4 float-right ">
+    <div class="card my-4">
+            <h5 class="card-header">Effortlessly Share Your Thoughts with the World</h5>
+        <div class="card-body">
+            <p class="card-text">This designed for storytellers, thinkers, and dreamers alike. Whether you’re a seasoned blogger or just starting out, BlogSphere offers a seamless and intuitive interface that makes sharing your stories and ideas with the world easier than ever.</p>
+            {% if request.user.is_authenticated and request.user.is_staff %}
+            <button onclick="window.location.href='/blogs/upload_blog/';" class="btn btn-danger">Share your thoughts</button>
+            {% endif %}
+        </div>
+    </div>
+    </div>

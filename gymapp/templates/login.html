@@ -1,0 +1,145 @@
+{% extends 'Navbar.html' %}  
+{% load static %}
+{% block style%}
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+  }
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+{% endblock %}
+
+{% block body %}
+<div class="login-container">
+<form class="form-signin" method="post" action="{% url 'login' %}">
+  {% csrf_token %} {% comment %}
+  <img class="mb-1" alt="" width="100" height="100" src="/static/chess.png" />
+  {% endcomment %}
+  <h1 class="h3 mb-3 font-weight-normal">My gym</h1>
+  {% if form.errors %} {% for field in form %} {% for error in field.errors %}
+  <div class="alert alert-danger">
+    <span type="button" class="close" data-dismiss="alert" aria-label="Close"
+      ><span aria-hidden="true">&times;</span></span
+    >
+    <strong>{{field.name|title}}:</strong> {{ error|escape }}
+  </div>
+  {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+  <div class="alert alert-danger">
+    <span type="button" class="close" data-dismiss="alert" aria-label="Close"
+      ><span aria-hidden="true">&times;</span></span
+    >
+    <strong>{{ error|escape|title }}</strong>
+  </div>
+  {% endfor %} 
+  {% endif %} 
+  {% if messages %} 
+  {% for message in messages %}
+  <div class="alert {{message.tags}} alert-dismissible" role="alert">
+    <span type="button" class="close" data-dismiss="alert" aria-label="Close"
+      ><span aria-hidden="true">&times;</span></span
+    >
+    {{message}}
+  </div>
+  {% endfor %} 
+  {% endif %}
+  <br />
+  <label for="id_username"><b>Username:-</b></label>
+  <input
+    type="text"
+    name="username"
+    id="id_username"
+    class="form-control"
+    placeholder="Username"
+    style="background-color: #cde2fc; border-radius: 15px"
+    required
+  />
+  <br />
+  <label for="id_email"><b>Email:-</b></label>
+  <input
+    type="text"
+    name="email1"
+    id="id_email"
+    class="form-control"
+    placeholder="abc@domain.com"
+    style="background-color: #cde2fc; border-radius: 15px"
+    required
+  />
+  <br />
+  <label for="id_password"><b>Password:-</b></label>
+  <input
+    type="password"
+    name="password"
+    id="id_password"
+    class="form-control"
+    placeholder="Password"
+    style="background-color: #b4d4fa; border-radius: 15px"
+    required
+  />
+  <br />
+  <button
+    class="btn btn-lg btn-primary btn-block mb-1"
+    type="submit"
+    style="background-color: #4169e1; border-radius: 20px"
+  >
+    Log in
+  </button>
+  <br />
+  <h5 class="font-weight-normal">
+    <a href="/signup/">Create new account now!</a>
+  </h5>
+</form>
+</div>
+
+{% endblock%}

@@ -1,0 +1,45 @@
+{% comment %} {% extends 'navigation.html' %} {% endcomment %} {% load static %}
+
+{% block body %}
+<style>
+    .button {
+        background-color: #04aa6d;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    
+    .button1 {
+        background-color: #04aa6d;
+    }
+    .button2 {
+    background-color: #008cba;
+  }
+  .button3 {
+      background-color: #f44336;
+    }
+    .button4 {
+        background-color: #e7e7e7;
+        color: black;
+    }
+  .button5 {
+      background-color: #555555;
+    }
+    .button:hover {
+        background-color: #218c74; 
+    }
+</style>
+<button onclick="window.location.href='/walk/';">walk</button>
+<button onclick="window.location.href='/squat/';">squat</button>
+<button onclick="window.location.href='/crunch/';">crunch</button>
+<button onclick="window.location.href='/jump/';">jump</button>
+<button onclick="window.location.href='/pullUp/';">Pull Up</button>
+<button onclick="window.location.href='/pushUp/';">Push Up</button>
+<button onclick="window.location.href='/cam/';">Check Camera</button>
+{% endblock%}
