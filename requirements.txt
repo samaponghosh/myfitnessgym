@@ -167,3 +167,4 @@ wrapt==1.16.0
 xhtml2pdf==0.2.15
 zope.interface==5.4.0
 gunicorn
+daphne
